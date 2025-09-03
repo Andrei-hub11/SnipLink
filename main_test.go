@@ -80,8 +80,8 @@ func TestShortenHandler(t *testing.T) {
 		should.ContainKey(t, response, "short_code", should.WithMessage("Response should contain short_code"))
 		should.ContainKey(t, response, "short_url", should.WithMessage("Response should contain short_url"))
 		should.BeEqual(t, len(response["short_code"]), 6, should.WithMessage("Short code should be 6 characters"))
-		should.StartsWith(t, response["short_url"], "http://localhost:8080/", should.WithMessage("Short URL should start with localhost"))
-		should.EndsWith(t, response["short_url"], response["short_code"], should.WithMessage("Short URL should end with short code"))
+		should.StartWith(t, response["short_url"], "http://localhost:8080/", should.WithMessage("Short URL should start with localhost"))
+		should.EndWith(t, response["short_url"], response["short_code"], should.WithMessage("Short URL should end with short code"))
 	})
 
 	t.Run("should store URL in map", func(t *testing.T) {
